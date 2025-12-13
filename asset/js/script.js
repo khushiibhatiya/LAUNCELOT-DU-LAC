@@ -40,15 +40,15 @@ function applyActiveNavLink() {
 function initializeMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (!hamburger || !navMenu) return;
-    
+
     // Remove any existing event listeners
     hamburger.removeEventListener('click', handleHamburgerClick);
-    
+
     // Add click event listener to hamburger
     hamburger.addEventListener('click', handleHamburgerClick);
-    
+
     // Close menu when clicking on nav links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
@@ -64,13 +64,13 @@ function handleHamburgerClick(e) {
     e.preventDefault();
     const navMenu = document.querySelector('.nav-menu');
     const hamburger = document.querySelector('.hamburger');
-    
+
     if (!navMenu || !hamburger) return;
-    
+
     // Toggle menu
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
-    
+
     // Animate hamburger bars
     const bars = hamburger.querySelectorAll('.bar');
     if (bars.length >= 3) {
@@ -89,7 +89,7 @@ function handleHamburgerClick(e) {
 function closeMenu() {
     const navMenu = document.querySelector('.nav-menu');
     const hamburger = document.querySelector('.hamburger');
-    
+
     if (navMenu) navMenu.classList.remove('active');
     if (hamburger) {
         hamburger.classList.remove('active');

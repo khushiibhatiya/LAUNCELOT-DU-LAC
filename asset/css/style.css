@@ -52,6 +52,7 @@ button,
 .footer-socials a,
 .bestseller-card {
     cursor: pointer;
+    text-decoration: none;
 }
 
 body {
@@ -87,6 +88,10 @@ body:hover .cursor-light {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 24px;
+}
+
+.center-text {
+    text-align: center;
 }
 
 .glass {
@@ -1911,7 +1916,7 @@ body:hover .cursor-light {
         margin: 20px;
     }
 
-    .principles-section{
+    .principles-section {
         margin: 20px;
     }
 
