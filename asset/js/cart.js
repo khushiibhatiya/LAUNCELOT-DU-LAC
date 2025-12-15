@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const product = {
                     title: card.querySelector('.book-title')?.innerText || 'Unknown Title',
                     author: card.querySelector('.book-author')?.innerText || 'Unknown Author',
-                    price: card.querySelector('.book-price')?.innerText || '$0.00',
+                    price: card.querySelector('.book-price')?.innerText || '\u00A30.00',
                     image: card.querySelector('.book-image')?.src || ''
                 };
 

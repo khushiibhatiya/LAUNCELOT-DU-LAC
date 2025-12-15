@@ -191,7 +191,7 @@
                 <h2 style="margin-bottom: 25px; font-family: 'Outfit';">Order Summary</h2>
                 <div class="summary-row">
                     <span>Subtotal</span>
-                    <span id="subtotal">$0.00</span>
+                    <span id="subtotal">&pound;0.00</span>
                 </div>
                 <div class="summary-row">
                     <span>Shipping</span>
@@ -199,7 +199,7 @@
                 </div>
                 <div class="summary-row summary-total">
                     <span>Total</span>
-                    <span id="total">$0.00</span>
+                    <span id="total">&pound;0.00</span>
                 </div>
                 <button class="checkout-page-btn" onclick="window.location.href='checkout.html'">Proceed to
                     Checkout</button>
@@ -276,8 +276,8 @@
             });
 
             container.innerHTML = html;
-            subtotalEl.innerText = '$' + total.toFixed(2);
-            totalEl.innerText = '$' + total.toFixed(2);
+            subtotalEl.innerText = '\u00A3' + total.toFixed(2);
+            totalEl.innerText = '\u00A3' + total.toFixed(2);
         }
 
         window.removeItemFromCart = function (index) {
