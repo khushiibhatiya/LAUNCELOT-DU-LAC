@@ -428,6 +428,7 @@ body:hover .cursor-light {
     margin-bottom: 24px;
     font-family: 'Outfit', sans-serif;
     background: linear-gradient(135deg, var(--text-main) 30%, var(--primary));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -2px;
@@ -1902,6 +1903,175 @@ body:hover .cursor-light {
     font-weight: 600;
 }
 
+/* --- Why Choose Us Section --- */
+.why-choose-us-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.why-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.why-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.why-card:hover::before {
+    opacity: 1;
+}
+
+.why-card-inner {
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.why-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 25px;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.why-card:hover .why-icon {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.why-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.why-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-body);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.why-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    align-self: flex-start;
+    transition: all 0.3s ease;
+}
+
+.why-card:hover .why-badge {
+    background: var(--primary);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Stats Bar */
+.why-stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 60px;
+    padding: 40px 60px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .why-stats-bar {
+        padding: 35px 40px;
+    }
+
+    .stat-number {
+        font-size: 40px;
+    }
+}
+
 @media (max-width: 900px) {
 
     .bento-grid {
@@ -1920,8 +2090,32 @@ body:hover .cursor-light {
         margin: 20px;
     }
 
+    .why-choose-us-section {
+        margin: 20px;
+    }
+
     .benefits-section {
         margin: 20px;
+    }
+
+    /* Why Choose Us Responsive */
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .why-stats-bar {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .stat-number {
+        font-size: 36px;
     }
 
     .spotlight-section {
