@@ -2090,11 +2090,7 @@ body:hover .cursor-light {
         margin: 20px;
     }
 
-    .why-choose-us-section {
-        margin: 20px;
-    }
-
-    .benefits-section {
+    .why-choose-us-section .benefits-section {
         margin: 20px;
     }
 
