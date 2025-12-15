@@ -1416,6 +1416,10 @@ body:hover .cursor-light {
 .reviews-section {
     padding: 80px 0 120px;
     overflow: hidden;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .marquee-container {
