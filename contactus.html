@@ -11,6 +11,12 @@
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* Hide existing footer CTA on this page */
+        #footer .footer-cta {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -113,6 +119,80 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section container" data-aos="fade-up">
+        <div class="faq-header">
+            <span class="badge-pill">Common Questions</span>
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p>Find answers to the most common questions about our publishing process.</p>
+        </div>
+
+        <div class="faq-grid">
+            <!-- Item 1 -->
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                <div class="faq-question">
+                    <h3>How long does it take to publish a book?</h3>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <div class="faq-answer">
+                    <p>The timeline varies depending on the manuscript's status and the services required. Generally,
+                        the
+                        process takes between 6 to 12 months from manuscript acceptance to the final release.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-question">
+                    <h3>Do you accept unsolicited manuscripts?</h3>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we welcome submissions from new and established authors. Please review our submission
+                        guidelines before sending your manuscript to ensure it meets our requirements.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                <div class="faq-question">
+                    <h3>What genres do you specialize in?</h3>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <div class="faq-answer">
+                    <p>We specialize in Fiction (Sci-Fi, Fantasy, Thriller), Non-Fiction (Self-Help, Biography), and
+                        Children's Literature. However, we are always open to unique and compelling stories across all
+                        genres.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-question">
+                    <h3>Do you offer editing services?</h3>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide comprehensive editing services including developmental editing, copy editing, and
+                        proofreading to ensure your manuscript is polished to perfection.</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                <div class="faq-question">
+                    <h3>How can I distribute my book internationally?</h3>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                </div>
+                <div class="faq-answer">
+                    <p>We work with major global distributors and retailers to ensure your book reaches readers
+                        worldwide,
+                        available in both print and digital formats across multiple platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Careers Section -->
     <section class="careers-section container reveal" data-aos="fade-up">
         <div class="careers-content glass">
@@ -207,13 +287,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Portfolio / LinkedIn URL</label>
-                    <div class="input-wrapper">
-                        <ion-icon name="link-outline"></ion-icon>
-                        <input type="url" placeholder="https://..." required>
-                    </div>
-                </div>
+
                 <button type="submit" class="btn btn-primary btn-block">
                     Submit Application <ion-icon name="arrow-forward-outline"></ion-icon>
                 </button>
@@ -327,6 +401,29 @@
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }, 1500);
+        });
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Toggle active class
+                const isActive = item.classList.contains('active');
+
+                // Close all others
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    otherAnswer.style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
         });
     });
 </script>
